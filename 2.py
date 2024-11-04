@@ -14,17 +14,13 @@ def personal_sum(numbers):
 
 def calculate_average(numbers):
     try:
-        '' in numbers
-    except TypeError:
-        print('В numbers записан некорректный тип данных')
-        return None
-
-    sum_nums, len_incorrect = personal_sum(numbers)
-
-    try:
+        sum_nums, len_incorrect = personal_sum(numbers)
         result = sum_nums / (len(numbers) - len_incorrect)
     except ZeroDivisionError:
         result = 0
+    except TypeError:
+        print('В numbers записан некорректный тип данных')
+        return None
 
     return result
 
